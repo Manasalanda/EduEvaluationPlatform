@@ -18,12 +18,24 @@ connectDB();
 const app = express();
 
 // ✅ CORS - must be before all routes
+// const corsOptions = {
+//   origin: '*',
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+//   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+//   credentials: false
+// };
+
+
+// app.use(cors(corsOptions));
 const corsOptions = {
-  origin: '*',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
-  credentials: false
+  origin: [
+    "https://eduevaluationplatform.onrender.com"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
 };
+
 app.use(cors(corsOptions));
 
 // ✅ Security - after cors
